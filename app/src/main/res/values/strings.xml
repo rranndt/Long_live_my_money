@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Overspense</string>
+
+    <!--Navigation Item-->
+    <string name="navigation_expense">Expense</string>
+    <string name="navigation_statistic">Statistic</string>
+    <string name="navigation_setting">Setting</string>
+
+    <!--TopBar Item-->
+    <string name="top_bar_expense">Expense</string>
+    <string name="top_bar_add">Add</string>
+
+    <!--Statistic Screen-->
+    <string name="content_description_calendar_icon_statistic_screen">Delete icon</string>
+
+    <!--Add Screen-->
+    <string name="title_amount_add_screen">Amount</string>
+    <string name="title_output_flow_filter_add_screen">Output flow</string>
+    <string name="title_date_add_screen">Date</string>
+    <string name="title_select_date_add_screen">Select a date</string>
+    <string name="title_category_add_screen">Category</string>
+    <string name="title_description_add_screen">Description</string>
+    <string name="title_content_description_add_screen">Your description</string>
+    <string name="title_select_category_add_screen">Select a category</string>
+    <string name="title_submit_add_screen">Submit</string>
+
+    <!--Setting Screen-->
+    <string name="title_setting_screen">Setting</string>
+    <string name="title_categories_setting_screen">Categories</string>
+    <string name="title_report_setting_screen">Report a bug</string>
+    <string name="title_theme_setting_screen">Theme</string>
+    <string name="title_language_setting_screen">Language</string>
+    <string name="title_app_info_setting_screen">App info</string>
+    <string name="title_erase_setting_screen">Erase all data</string>
+
+    <!--Categories Screen-->
+    <string name="content_description_clear_icon_category_screen">Delete icon</string>
+    <string name="content_description_send_icon_category_screen">Send Button</string>
+    <string name="title_placeholder_category_screen">Category name</string>
+    <string name="title_select_color_category_screen">Pick a color</string>
+    <string name="title_done_category_screen">Done</string>
+    <string name="title_no_data_category_screen">No categories found.</string>
+
+    <!--Output Flow Filter-->
+    <string name="name_none">None</string>
+    <string name="name_daily">Daily</string>
+    <string name="name_weekly">Weekly</string>
+    <string name="name_monthly">Monthly</string>
+    <string name="name_yearly">Yearly</string>
+    <string name="target_none">None</string>
+    <string name="target_daily">Today</string>
+    <string name="target_weekly">This week</string>
+    <string name="target_monthly">This month</string>
+    <string name="target_yearly">This year</string>
+
+    <!--Number Utils-->
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+</resources>
