@@ -10,8 +10,12 @@
     <string name="top_bar_expense">Expense</string>
     <string name="top_bar_add">Add</string>
 
-    <!--Statistic Screen-->
-    <string name="content_description_calendar_icon_statistic_screen">Delete icon</string>
+    <!--Expenses Screen-->
+    <string name="title_total_expense_screen">Your total amount:</string>
+    <string name="title_currency_expense_screen">IDR</string>
+    <string name="title_no_data_expense_screen">No data at this range</string>
+    <string name="title_total_item_expense_screen">Total</string>
+    <string name="content_description_icon_statistic_screen">Unfold more</string>
 
     <!--Add Screen-->
     <string name="title_amount_add_screen">Amount</string>
@@ -23,6 +27,10 @@
     <string name="title_content_description_add_screen">Your description</string>
     <string name="title_select_category_add_screen">Select a category</string>
     <string name="title_submit_add_screen">Submit</string>
+
+    <!--Statistic Screen-->
+    <string name="title_filter_statistic_screen">Filter</string>
+    <string name="content_description_calendar_icon_statistic_screen">Delete icon</string>
 
     <!--Setting Screen-->
     <string name="title_setting_screen">Setting</string>
@@ -40,6 +48,7 @@
     <string name="title_select_color_category_screen">Pick a color</string>
     <string name="title_done_category_screen">Done</string>
     <string name="title_no_data_category_screen">No categories found.</string>
+    <string name="title_no_category_found_category_screen">No category found! \ngo to setting menu you can make it there.</string>
 
     <!--Output Flow Filter-->
     <string name="name_none">None</string>

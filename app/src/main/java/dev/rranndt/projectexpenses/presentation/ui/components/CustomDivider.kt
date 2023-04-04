@@ -12,11 +12,11 @@ import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
 
 @Composable
 fun CustomDivider(
-    paddingMedium: Dp = MaterialTheme.spacing.medium,
+    padding: Dp = MaterialTheme.spacing.medium,
 ) {
     Divider(
         modifier = Modifier
-            .padding(horizontal = paddingMedium),
+            .padding(horizontal = padding),
         thickness = 1.dp,
         color = DividerDefaults.color.copy(alpha = 0.7f)
     )

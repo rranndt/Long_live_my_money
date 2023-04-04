@@ -24,10 +24,13 @@ import com.google.accompanist.pager.*
 import dev.rranndt.projectexpenses.R
 import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
 import dev.rranndt.projectexpenses.domain.model.Category
+import dev.rranndt.projectexpenses.domain.model.Expense
 import dev.rranndt.projectexpenses.presentation.feature_add.AddExpenseScreen
 import dev.rranndt.projectexpenses.presentation.feature_add.state.AddExpenseState
 import dev.rranndt.projectexpenses.presentation.feature_categories.CategoryViewModel
 import dev.rranndt.projectexpenses.presentation.feature_expense.ExpenseScreen
+import dev.rranndt.projectexpenses.presentation.feature_expense.event.ExpenseEvent
+import dev.rranndt.projectexpenses.presentation.feature_expense.state.ExpenseState
 import dev.rranndt.projectexpenses.presentation.ui.navigation.Screen
 import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
 import kotlinx.coroutines.CoroutineScope
@@ -55,8 +58,13 @@ fun TopBarPager(
     categoryMenuOpened: MutableState<Boolean>,
     onDescriptionValueChange: (String) -> Unit,
     categoryViewModel: CategoryViewModel,
-    state: AddExpenseState,
+    addExpenseState: AddExpenseState,
     onInsertExpense: () -> Unit,
+    expenses: List<Expense>,
+    filterName: String,
+    sumTotal: Double,
+    onEvent: (ExpenseEvent) -> Unit,
+    expenseState: ExpenseState,
 ) {
     val tabRowItems = listOf(
         TopBarPagerItem(
@@ -114,7 +122,13 @@ fun TopBarPager(
             state = pagerState,
         ) { page ->
             when (page) {
-                0 -> ExpenseScreen()
+                0 -> ExpenseScreen(
+                    expenses = expenses,
+                    sumTotal = sumTotal,
+                    filterName = filterName,
+                    onEvent = onEvent,
+                    state = expenseState
+                )
                 1 -> AddExpenseScreen(
                     amount = amount,
                     outputFlow = outputFlow,
@@ -132,7 +146,7 @@ fun TopBarPager(
                     categoryMenuOpened = categoryMenuOpened,
                     onDescriptionValueChange = onDescriptionValueChange,
                     categoryViewModel = categoryViewModel,
-                    state = state,
+                    state = addExpenseState,
                     onInsertExpense = onInsertExpense,
                 )
             }

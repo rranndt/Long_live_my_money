@@ -93,7 +93,7 @@ class AddExpenseViewModel @Inject constructor(
                                     now.minute,
                                     now.hour
                                 ).toString(),
-                                description = _uiState.value.description,
+                                description = _uiState.value.description.ifEmpty { "-" },
                                 category = _uiState.value.category
                             )
                         )

@@ -26,6 +26,7 @@ import dev.rranndt.projectexpenses.presentation.feature_add.event.AddExpenseEven
 import dev.rranndt.projectexpenses.presentation.feature_categories.CategoryScreen
 import dev.rranndt.projectexpenses.presentation.feature_categories.CategoryViewModel
 import dev.rranndt.projectexpenses.presentation.feature_expense.ExpenseScreen
+import dev.rranndt.projectexpenses.presentation.feature_expense.ExpenseViewModel
 import dev.rranndt.projectexpenses.presentation.feature_setting.SettingScreen
 import dev.rranndt.projectexpenses.presentation.feature_statistic.StatisticScreen
 import dev.rranndt.projectexpenses.presentation.ui.navigation.Screen
@@ -43,8 +44,10 @@ fun MainScreen(
     val pagerState = rememberPagerState()
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
-    val categoryViewModel: CategoryViewModel = hiltViewModel()
+    val expenseViewModel: ExpenseViewModel = hiltViewModel()
     val addExpenseViewModel: AddExpenseViewModel = hiltViewModel()
+    val categoryViewModel: CategoryViewModel = hiltViewModel()
+    val expenseState by expenseViewModel.uiState.collectAsState()
     val addExpenseState by addExpenseViewModel.uiState.collectAsState()
     val filterMenuOpened = remember { mutableStateOf(false) }
     val datePickerOpened = remember { mutableStateOf(false) }
@@ -82,8 +85,13 @@ fun MainScreen(
                         addExpenseViewModel.onEvent(AddExpenseEvent.SetDescription(it))
                     },
                     categoryViewModel = categoryViewModel,
-                    state = addExpenseState,
+                    addExpenseState = addExpenseState,
                     onInsertExpense = { addExpenseViewModel.onEvent(AddExpenseEvent.InsertExpense) },
+                    expenses = expenseState.expenses,
+                    sumTotal = expenseState.sumTotal,
+                    filterName = stringResource(id = expenseState.outputFlow.target),
+                    onEvent = expenseViewModel::onEvent,
+                    expenseState = expenseState
                 )
             }
         },
@@ -100,14 +108,27 @@ fun MainScreen(
                 modifier = Modifier
                     .padding(innerPadding)
             ) {
-                composable(Screen.Expense.route) { ExpenseScreen() }
+                expenseRoute()
                 composable(Screen.Statistic.route) { StatisticScreen() }
                 composable(Screen.Setting.route) { SettingScreen(navController) }
-                categoryRoute(
-                    navigateBack = navController::popBackStack
-                )
+                categoryRoute(navigateBack = navController::popBackStack)
             }
         }
+    }
+}
+
+fun NavGraphBuilder.expenseRoute() {
+    composable(route = Screen.Expense.route) {
+        val viewModel: ExpenseViewModel = hiltViewModel()
+        val uiState by viewModel.uiState.collectAsState()
+
+        ExpenseScreen(
+            expenses = uiState.expenses,
+            filterName = stringResource(id = uiState.outputFlow.target),
+            sumTotal = uiState.sumTotal,
+            onEvent = viewModel::onEvent,
+            state = uiState
+        )
     }
 }
 

@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -28,6 +29,7 @@ import dev.rranndt.projectexpenses.presentation.feature_add.components.*
 import dev.rranndt.projectexpenses.presentation.feature_add.state.AddExpenseState
 import dev.rranndt.projectexpenses.presentation.feature_categories.CategoryViewModel
 import dev.rranndt.projectexpenses.presentation.ui.components.CustomDivider
+import dev.rranndt.projectexpenses.presentation.ui.components.TextViewHelper
 import dev.rranndt.projectexpenses.presentation.ui.theme.Shapes
 import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
 import java.time.LocalDate
@@ -49,19 +51,19 @@ fun AddExpenseScreen(
     onSetCategory: (Category) -> Unit,
     categoryMenuOpened: MutableState<Boolean>,
     onDescriptionValueChange: (String) -> Unit,
-    categoryViewModel: CategoryViewModel,
     state: AddExpenseState,
     onInsertExpense: () -> Unit,
     focusManager: FocusManager = LocalFocusManager.current,
     enabled: Boolean = false,
+    categoryViewModel: CategoryViewModel,
 ) {
+    val categories = categoryViewModel.getCategories().collectAsState(initial = listOf()).value
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(
-                horizontal = MaterialTheme.spacing.medium,
-                vertical = MaterialTheme.spacing.medium
-            )
+            .padding(horizontal = MaterialTheme.spacing.medium)
+            .padding(top = MaterialTheme.spacing.medium, bottom = 74.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -135,6 +137,26 @@ fun AddExpenseScreen(
                         .alpha(alpha = alpha)
                         .align(alignment = Alignment.CenterVertically),
                 )
+            }
+        }
+        categories.let {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.Start
+            ) {
+                if (it.isEmpty()) {
+                    TextViewHelper(
+                        text = stringResource(id = R.string.title_no_category_found_category_screen),
+                        style = MaterialTheme.typography.titleSmall.copy(
+                            fontSize = 12.sp,
+                            lineHeight = 16.sp
+                        ),
+                        color = MaterialTheme.colorScheme.error,
+                        modifier = Modifier
+                            .padding(top = MaterialTheme.spacing.large)
+                    )
+                }
             }
         }
     }

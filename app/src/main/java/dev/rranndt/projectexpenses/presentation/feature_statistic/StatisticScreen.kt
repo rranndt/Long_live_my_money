@@ -17,7 +17,7 @@ import dev.rranndt.projectexpenses.presentation.ui.components.TopBarContent
 fun StatisticScreen() {
     Scaffold(
         topBar = {
-            TopBarContent(title = stringResource(id = R.string.navigation_statistic), hasActionButton = true)
+            TopBarContent(title = stringResource(id = R.string.navigation_statistic), hasFilterButton = true)
         }
     ) { innerPadding ->
         Column(

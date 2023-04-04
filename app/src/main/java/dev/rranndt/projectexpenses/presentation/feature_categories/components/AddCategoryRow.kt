@@ -117,7 +117,11 @@ fun AddCategoryRow(
                 onInsertCategory()
                 focusManager.clearFocus()
             },
-            enabled = state.categoryName.isNotEmpty()
+            enabled = state.categoryName.isNotEmpty(),
+            colors = IconButtonDefaults.iconButtonColors(
+                contentColor = MaterialTheme.colorScheme.primary,
+                disabledContentColor = MaterialTheme.colorScheme.secondaryContainer,
+            ),
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_send),

@@ -74,7 +74,7 @@ fun SetCategory(
                                     ) {}
                                     Text(
                                         text = category.name,
-                                        color = MaterialTheme.colorScheme.onBackground,
+                                        color = MaterialTheme.colorScheme.onTertiaryContainer,
                                         fontWeight = FontWeight.Normal,
                                         modifier = Modifier
                                             .padding(start = MaterialTheme.spacing.small)

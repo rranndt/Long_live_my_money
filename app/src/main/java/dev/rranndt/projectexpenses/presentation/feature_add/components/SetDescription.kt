@@ -34,7 +34,7 @@ fun SetDescription(
         label = label,
         labelStyle = MaterialTheme.typography.bodyMedium,
         labelWeight = FontWeight.Medium,
-        minHeight = 150.dp,
+        minHeight = 120.dp,
         content = {
             TableRow(
                 modifier = Modifier
@@ -48,7 +48,9 @@ fun SetDescription(
                         CustomTextField(
                             value = value,
                             onValueChange = {
-                                onDescriptionValueChange(it)
+                                if (it.length <= 100) {
+                                    onDescriptionValueChange(it)
+                                }
                             },
                             placeholder = {
                                 Text(

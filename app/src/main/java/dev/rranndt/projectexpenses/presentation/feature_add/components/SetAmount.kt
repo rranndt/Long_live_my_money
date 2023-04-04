@@ -46,7 +46,7 @@ fun SetAmount(
                         CustomTextField(
                             value = amount,
                             onValueChange = {
-                                if (it.length <= 12 && it.isDigitsOnly()) {
+                                if (it.length <= 9 && it.isDigitsOnly()) {
                                     onAmountValueChange(it)
                                 }
                             },
