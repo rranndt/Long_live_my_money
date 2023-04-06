@@ -1,6 +1,8 @@
 # Compose Playground...***Work in progress***...
 ***A minimalistic Android application made to describe the latest android development trend. Built with Clean Architecture and Jatpack Component (Compose, ViewModel, Room, Hilt, and many more...)***
 
+![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
+
 ## Clean Architecture with MVVM design pattern
 ***I am still learning and understanding clean architecture so it might be not perfectly 101% correct*** :pray:
 
