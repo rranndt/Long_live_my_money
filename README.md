@@ -32,4 +32,12 @@ Separating the top level into 4 packages
 - <a href="http://airbnb.io/lottie/#/android-compose">***Lottie***</a> : Lottie is a library for Android, iOS, Web, and Windows that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile and on the web!
 - <a href="https://github.com/google/accompanist">***Accompanist***</a> : Accompanist is a group of libraries that aim to supplement Jetpack Compose with features that are commonly required by developers but not yet available.
 
+## Incomplete task :no_entry:
+- Horizontal paging between date in statistic
+- Change theme between dark or light or by system default
+- Adding multiple language
+- Backup and restore database
+- Export to csv
+- Add other currencies (***if possible***)
+
 <p>Made with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
