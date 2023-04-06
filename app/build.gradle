@@ -76,6 +76,8 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Coroutine Lifecycle Scopes
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
@@ -108,4 +110,7 @@ dependencies {
 
     // Datetime
     implementation 'com.marosseleng.android:compose-material3-datetime-pickers:0.6.0'
+
+    // Chart
+    implementation "com.github.tehras:charts:0.2.4-alpha"
 }

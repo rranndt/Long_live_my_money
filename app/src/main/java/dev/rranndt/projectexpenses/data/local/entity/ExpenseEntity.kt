@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import dev.rranndt.projectexpenses.R
 import java.time.LocalDateTime
 
 @Entity(tableName = "expense")
@@ -14,7 +13,7 @@ data class ExpenseEntity(
     var expenseId: Int = 0,
     var amount: Double = 0.0,
     @ColumnInfo(name = "output_flow")
-    var outputFlow: Int = R.string.name_none,
+    var filter: String = "None",
     @ColumnInfo(name = "date_value")
     var dateValue: String = LocalDateTime.now().toString(),
     var description: String = "",

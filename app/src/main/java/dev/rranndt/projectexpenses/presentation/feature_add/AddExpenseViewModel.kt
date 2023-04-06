@@ -3,15 +3,13 @@ package dev.rranndt.projectexpenses.presentation.feature_add
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
+import dev.rranndt.projectexpenses.core.utils.Filter
 import dev.rranndt.projectexpenses.domain.model.Expense
 import dev.rranndt.projectexpenses.domain.usecase.ExpenseUseCase
 import dev.rranndt.projectexpenses.presentation.feature_add.event.AddExpenseEvent
 import dev.rranndt.projectexpenses.presentation.feature_add.state.AddExpenseState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -22,7 +20,7 @@ class AddExpenseViewModel @Inject constructor(
     private val useCase: ExpenseUseCase,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(AddExpenseState())
-    val uiState: StateFlow<AddExpenseState> = _uiState
+    val uiState: StateFlow<AddExpenseState> = _uiState.asStateFlow()
 
     init {
         getCategories()
@@ -82,12 +80,12 @@ class AddExpenseViewModel @Inject constructor(
             }
             AddExpenseEvent.InsertExpense -> {
                 if (_uiState.value.category != null) {
-                    viewModelScope.launch {
+                    viewModelScope.launch(Dispatchers.IO) {
                         val now = LocalDateTime.now()
                         useCase.insertExpense(
                             Expense(
                                 amount = _uiState.value.amount.toDouble(),
-                                outputFlow = _uiState.value.outputFlow.name,
+                                filter = _uiState.value.outputFlow.name,
                                 dateValue = _uiState.value.date.atTime(
                                     now.hour,
                                     now.minute,
@@ -101,7 +99,7 @@ class AddExpenseViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             currentState.copy(
                                 amount = "",
-                                outputFlow = OutputFlowFilter.NONE,
+                                outputFlow = Filter.None,
                                 date = LocalDate.now(),
                                 description = "",
                                 category = null,

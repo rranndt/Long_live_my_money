@@ -17,7 +17,7 @@ fun CustomDivider(
     Divider(
         modifier = Modifier
             .padding(horizontal = padding),
-        thickness = 1.dp,
+        thickness = 0.5.dp,
         color = DividerDefaults.color.copy(alpha = 0.7f)
     )
 }

@@ -3,6 +3,7 @@ package dev.rranndt.projectexpenses.core.utils
 import android.content.Context
 import dev.rranndt.projectexpenses.R
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
@@ -20,6 +21,15 @@ fun LocalDate.formatDay(
     }
 }
 
+fun LocalDateTime.formatDayForRange(): String {
+    val today = LocalDateTime.now()
+
+    return when {
+        this.year != today.year -> this.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))
+        else -> this.format(DateTimeFormatter.ofPattern("dd MMM"))
+    }
+}
+
 data class DateRangeData(
     val start: LocalDate,
     val end: LocalDate,
@@ -27,7 +37,7 @@ data class DateRangeData(
 )
 
 fun calculateDateRange(
-    outputFlow: OutputFlowFilter,
+    filter: Filter,
     page: Int,
 ): DateRangeData {
     val today = LocalDate.now()
@@ -35,24 +45,24 @@ fun calculateDateRange(
     lateinit var endDate: LocalDate
     var daysInRange = 7
 
-    when (outputFlow) {
-        OutputFlowFilter.DAILY -> {
+    when (filter) {
+        Filter.Daily -> {
             startDate = LocalDate.now().minusDays(page.toLong())
             endDate = startDate
         }
-        OutputFlowFilter.WEEKLY -> {
+        Filter.Weekly -> {
             startDate = LocalDate.now().minusDays(today.dayOfWeek.value.toLong() - 1)
                 .minusDays((page * 7).toLong())
             endDate = startDate.plusDays(6)
             daysInRange = 7
         }
-        OutputFlowFilter.MONTHLY -> {
+        Filter.Monthly -> {
             startDate = LocalDate.of(today.year, today.month, 1).minusMonths(page.toLong())
             val numberOfDays = YearMonth.of(startDate.year, startDate.month).lengthOfMonth()
             endDate = startDate.plusDays(numberOfDays.toLong())
             daysInRange = numberOfDays
         }
-        OutputFlowFilter.YEARLY -> {
+        Filter.Yearly -> {
             startDate = LocalDate.of(today.year, 1, 1)
             endDate = LocalDate.of(today.year, 12, 31)
             daysInRange = 365

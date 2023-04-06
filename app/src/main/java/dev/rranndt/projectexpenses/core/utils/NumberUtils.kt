@@ -4,6 +4,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
+import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
@@ -24,5 +25,24 @@ class NumberCommaTransformation : VisualTransformation {
                 }
             }
         )
+    }
+}
+
+fun Double.localCurrencyFormat(): String {
+    return NumberFormat.getNumberInstance(Locale.getDefault())
+        .format(this)
+}
+
+fun Double.simplifyNumber(): String {
+    return when {
+        this >= 1000 -> DecimalFormat("0k").format(this / 1000)
+        else -> DecimalFormat("0").format(this)
+    }
+}
+
+fun simplifyNumber(value: Float): String {
+    return when {
+        value >= 1000 -> DecimalFormat("0k").format(value / 1000)
+        else -> DecimalFormat("0").format(value)
     }
 }

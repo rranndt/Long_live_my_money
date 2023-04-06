@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -19,8 +20,7 @@ import dev.rranndt.projectexpenses.core.utils.simplifyNumber
 import dev.rranndt.projectexpenses.domain.model.Expense
 import dev.rranndt.projectexpenses.presentation.feature_expense.components.ListingExpense
 import dev.rranndt.projectexpenses.presentation.feature_expense.state.ExpenseState
-import dev.rranndt.projectexpenses.presentation.feature_statistic.components.charts.MonthlyChart
-import dev.rranndt.projectexpenses.presentation.feature_statistic.components.charts.WeeklyChart
+import dev.rranndt.projectexpenses.presentation.feature_statistic.components.charts.*
 import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -118,9 +118,28 @@ fun StatisticPage(
             when (filter) {
                 Filter.Weekly -> WeeklyChart(expenses)
                 Filter.Monthly -> MonthlyChart(expense = expenses, month = LocalDate.now())
-                Filter.Yearly -> Unit
+                Filter.Yearly -> YearlyChart(expense = expenses)
                 else -> Unit
             }
+        }
+
+        // TODO: chart gruping berdasarkan jumlah kategori yg digunakan
+        Box(modifier = Modifier) {
+            val slices = listOf(
+                Slice(value = 2f, color = Color(0XFFe31a1a)),
+                Slice(value = 3f, color = Color(0XFF377eb8)),
+                Slice(value = 6f, color = Color(0xFFA36045)),
+                Slice(value = 2f, color = Color(0xFFA38F45)),
+                Slice(value = 4f, color = Color(0xFF45A388)),
+                Slice(value = 5f, color = Color(0xFF4559A3)),
+                Slice(value = 1f, color = Color(0xFFA3459A))
+            )
+            StackBarChart(
+                slices = slices,
+                modifier = Modifier
+                    .height(16.dp)
+                    .fillMaxWidth(),
+            )
         }
 
         LazyColumn(

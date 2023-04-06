@@ -36,7 +36,7 @@ object DataMapper {
         return ExpenseEntity(
             expenseId = expenseId,
             amount = amount,
-            outputFlow = outputFlow,
+            filter = filter,
             dateValue = dateValue,
             description = description,
             category = category?.toCategoryEntity()
@@ -48,7 +48,7 @@ object DataMapper {
             Expense(
                 expenseId = it.expenseId,
                 amount = it.amount,
-                outputFlow = it.outputFlow,
+                filter = it.filter,
                 dateValue = it.dateValue,
                 description = it.description,
                 category = it.category?.toCategory()

@@ -30,6 +30,7 @@
 
     <!--Statistic Screen-->
     <string name="title_filter_statistic_screen">Filter</string>
+    <string name="title_avg_day_statistic_screen">Avg/day</string>
     <string name="content_description_calendar_icon_statistic_screen">Delete icon</string>
 
     <!--Setting Screen-->
@@ -38,6 +39,8 @@
     <string name="title_report_setting_screen">Report a bug</string>
     <string name="title_theme_setting_screen">Theme</string>
     <string name="title_language_setting_screen">Language</string>
+    <string name="title_backup_restore_setting_screen">Backup or restore db</string>
+    <string name="title_export_setting_screen">Export to csv</string>
     <string name="title_app_info_setting_screen">App info</string>
     <string name="title_erase_setting_screen">Erase all data</string>
 
@@ -65,4 +68,7 @@
     <!--Number Utils-->
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
+
+    <!--Common-->
+    <string name="in_development">In Development</string>
 </resources>

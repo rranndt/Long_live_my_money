@@ -8,10 +8,8 @@ import dev.rranndt.projectexpenses.domain.model.Category
 import dev.rranndt.projectexpenses.domain.usecase.ExpenseUseCase
 import dev.rranndt.projectexpenses.presentation.feature_categories.event.CategoryEvent
 import dev.rranndt.projectexpenses.presentation.feature_categories.state.CategoryState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,7 +18,7 @@ class CategoryViewModel @Inject constructor(
     private val useCase: ExpenseUseCase,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(CategoryState())
-    val uiState: StateFlow<CategoryState> = _uiState
+    val uiState: StateFlow<CategoryState> = _uiState.asStateFlow()
 
     init {
         getCategories()
@@ -86,7 +84,7 @@ class CategoryViewModel @Inject constructor(
                 }
             }
             CategoryEvent.InsertCategory -> {
-                viewModelScope.launch {
+                viewModelScope.launch(Dispatchers.IO) {
                     useCase.insertCategory(
                         Category(
                             name = _uiState.value.categoryName,

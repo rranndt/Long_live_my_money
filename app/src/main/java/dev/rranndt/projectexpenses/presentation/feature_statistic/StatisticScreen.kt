@@ -117,7 +117,7 @@ fun StatisticScreen(
         ) { page ->
             StatisticPage(
                 innerPadding = innerPadding,
-                page = page,
+                page = page, // TODO: slide page until i between week/month
                 filter = outputFlow,
                 startDate = startDate,
                 endDate = endDate,

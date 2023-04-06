@@ -27,7 +27,7 @@ fun CategoryBadge(
                 color = MaterialTheme.colorScheme.onBackground
             ),
             modifier = Modifier
-                .padding(MaterialTheme.spacing.extraSmall)
+                .padding(horizontal = MaterialTheme.spacing.extraSmall)
         )
     }
 }

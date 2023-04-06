@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.google.accompanist.pager.*
 import dev.rranndt.projectexpenses.R
-import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
+import dev.rranndt.projectexpenses.core.utils.Filter
 import dev.rranndt.projectexpenses.domain.model.Category
 import dev.rranndt.projectexpenses.domain.model.Expense
 import dev.rranndt.projectexpenses.presentation.feature_add.AddExpenseScreen
@@ -50,7 +50,7 @@ fun TopBarPager(
     categoryColor: Color,
     description: String,
     onAmountValueChange: (String) -> Unit,
-    onFilterValueChange: (OutputFlowFilter) -> Unit,
+    onFilterValueChange: (Filter) -> Unit,
     filterMenuOpened: MutableState<Boolean>,
     onSetDate: (LocalDate) -> Unit,
     datePickerOpened: MutableState<Boolean>,
@@ -65,6 +65,7 @@ fun TopBarPager(
     sumTotal: Double,
     onEvent: (ExpenseEvent) -> Unit,
     expenseState: ExpenseState,
+    menuOpened: Boolean,
 ) {
     val tabRowItems = listOf(
         TopBarPagerItem(
@@ -88,7 +89,7 @@ fun TopBarPager(
             modifier = Modifier
                 .padding(
                     vertical = MaterialTheme.spacing.medium,
-                    horizontal = MaterialTheme.spacing.extraLarge
+                    horizontal = 40.dp
                 )
                 .clip(RoundedCornerShape(MaterialTheme.spacing.large)),
             divider = {
@@ -106,10 +107,10 @@ fun TopBarPager(
                     text = {
                         Text(
                             text = item.label,
-                            maxLines = 2,
+                            maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             style = MaterialTheme.typography.titleSmall.copy(fontSize = 16.sp),
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
                         )
                     },
                     modifier = Modifier
@@ -127,7 +128,8 @@ fun TopBarPager(
                     sumTotal = sumTotal,
                     filterName = filterName,
                     onEvent = onEvent,
-                    state = expenseState
+                    state = expenseState,
+                    menuOpened = menuOpened,
                 )
                 1 -> AddExpenseScreen(
                     amount = amount,

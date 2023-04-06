@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -29,6 +30,7 @@ import dev.rranndt.projectexpenses.presentation.feature_expense.ExpenseScreen
 import dev.rranndt.projectexpenses.presentation.feature_expense.ExpenseViewModel
 import dev.rranndt.projectexpenses.presentation.feature_setting.SettingScreen
 import dev.rranndt.projectexpenses.presentation.feature_statistic.StatisticScreen
+import dev.rranndt.projectexpenses.presentation.feature_statistic.StatisticViewModel
 import dev.rranndt.projectexpenses.presentation.ui.navigation.Screen
 import dev.rranndt.projectexpenses.presentation.ui.navigation.bottom_bar.BottomBar
 import dev.rranndt.projectexpenses.presentation.ui.navigation.top_bar_pager.TopBarPager
@@ -47,8 +49,8 @@ fun MainScreen(
     val expenseViewModel: ExpenseViewModel = hiltViewModel()
     val addExpenseViewModel: AddExpenseViewModel = hiltViewModel()
     val categoryViewModel: CategoryViewModel = hiltViewModel()
-    val expenseState by expenseViewModel.uiState.collectAsState()
-    val addExpenseState by addExpenseViewModel.uiState.collectAsState()
+    val expenseState by expenseViewModel.uiState.collectAsStateWithLifecycle()
+    val addExpenseState by addExpenseViewModel.uiState.collectAsStateWithLifecycle()
     val filterMenuOpened = remember { mutableStateOf(false) }
     val datePickerOpened = remember { mutableStateOf(false) }
     val categoryMenuOpened = remember { mutableStateOf(false) }
@@ -64,7 +66,7 @@ fun MainScreen(
                     pagerState = pagerState,
                     coroutineScope = coroutineScope,
                     amount = addExpenseState.amount,
-                    outputFlow = stringResource(id = addExpenseState.outputFlow.name),
+                    outputFlow = addExpenseState.outputFlow.name,
                     date = addExpenseState.date.formatDay(context),
                     initialDate = addExpenseState.date,
                     categoryName = addExpenseState.category?.name
@@ -89,9 +91,10 @@ fun MainScreen(
                     onInsertExpense = { addExpenseViewModel.onEvent(AddExpenseEvent.InsertExpense) },
                     expenses = expenseState.expenses,
                     sumTotal = expenseState.sumTotal,
-                    filterName = stringResource(id = expenseState.outputFlow.target),
+                    filterName = expenseState.filter.target,
                     onEvent = expenseViewModel::onEvent,
-                    expenseState = expenseState
+                    expenseState = expenseState,
+                    menuOpened = expenseState.isFilterOpened,
                 )
             }
         },
@@ -109,7 +112,7 @@ fun MainScreen(
                     .padding(innerPadding)
             ) {
                 expenseRoute()
-                composable(Screen.Statistic.route) { StatisticScreen() }
+                statisticRoute()
                 composable(Screen.Setting.route) { SettingScreen(navController) }
                 categoryRoute(navigateBack = navController::popBackStack)
             }
@@ -120,14 +123,38 @@ fun MainScreen(
 fun NavGraphBuilder.expenseRoute() {
     composable(route = Screen.Expense.route) {
         val viewModel: ExpenseViewModel = hiltViewModel()
-        val uiState by viewModel.uiState.collectAsState()
+        val state by viewModel.uiState.collectAsStateWithLifecycle()
 
         ExpenseScreen(
-            expenses = uiState.expenses,
-            filterName = stringResource(id = uiState.outputFlow.target),
-            sumTotal = uiState.sumTotal,
+            expenses = state.expenses,
+            filterName = state.filter.target,
+            sumTotal = state.sumTotal,
             onEvent = viewModel::onEvent,
-            state = uiState
+            state = state,
+            menuOpened = state.isFilterOpened
+        )
+    }
+}
+
+fun NavGraphBuilder.statisticRoute() {
+    composable(route = Screen.Statistic.route) {
+        val viewModel: StatisticViewModel = hiltViewModel()
+        val expenseViewModel: ExpenseViewModel = hiltViewModel()
+        val state by viewModel.uiState.collectAsStateWithLifecycle()
+        val expenseState by expenseViewModel.uiState.collectAsStateWithLifecycle()
+
+        StatisticScreen(
+            onEvent = viewModel::onEvent,
+            filterName = state.filter.name,
+            menuOpened = state.isFilterOpened,
+            state = state,
+            outputFlow = state.filter,
+            startDate = state.startDate,
+            endDate = state.endDate,
+            totalInRange = state.totalInRange,
+            avgPerDay = state.avgPerDay,
+            expenses = state.expenses,
+            expenseState = expenseState
         )
     }
 }
@@ -137,7 +164,7 @@ fun NavGraphBuilder.categoryRoute(
 ) {
     composable(route = Screen.Categories.route) {
         val viewModel: CategoryViewModel = hiltViewModel()
-        val uiState by viewModel.uiState.collectAsState()
+        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         val colorPickerController = rememberColorPickerController()
 
         CategoryScreen(

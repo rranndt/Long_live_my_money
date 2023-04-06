@@ -1,6 +1,5 @@
 package dev.rranndt.projectexpenses.presentation.ui.components
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TopAppBar
 import androidx.compose.material3.Icon
@@ -22,8 +21,8 @@ import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
 fun TopBarContent(
     title: String,
     hasNavigationButton: Boolean = false,
-    hasFilterButton: Boolean = false,
     navigateBack: (() -> Unit)? = null,
+    content: (@Composable RowScope.() -> Unit)? = null,
 ) {
     TopAppBar(
         title = {
@@ -55,30 +54,14 @@ fun TopBarContent(
                     modifier = Modifier
                         .align(Alignment.Center)
                 )
-                if (hasFilterButton) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .padding(end = MaterialTheme.spacing.small)
-                            .align(alignment = Alignment.CenterEnd)
-                            .clickable {
-                                // TODO:
-                            }
-                    ) {
-                        Text(
-                            text = stringResource(id = R.string.title_filter_statistic_screen),
-                            style = MaterialTheme.typography.bodyMedium.copy(
-                                color = MaterialTheme.colorScheme.primary,
-                                fontWeight = FontWeight.Medium
-                            )
-                        )
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_unfold),
-                            contentDescription = stringResource(id = R.string.content_description_icon_statistic_screen),
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier
-                                .size(MaterialTheme.spacing.medium)
-                        )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .padding(end = MaterialTheme.spacing.small)
+                        .align(alignment = Alignment.CenterEnd)
+                ) {
+                    if (content != null) {
+                        content()
                     }
                 }
             }

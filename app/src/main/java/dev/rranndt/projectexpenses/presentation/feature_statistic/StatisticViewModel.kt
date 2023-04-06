@@ -8,6 +8,7 @@ import dev.rranndt.projectexpenses.core.utils.calculateDateRange
 import dev.rranndt.projectexpenses.domain.usecase.ExpenseUseCase
 import dev.rranndt.projectexpenses.presentation.feature_statistic.event.StatisticEvent
 import dev.rranndt.projectexpenses.presentation.feature_statistic.state.StatisticState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -50,7 +51,7 @@ class StatisticViewModel @Inject constructor(
                 }
             }
             is StatisticEvent.SetStatistic -> {
-                viewModelScope.launch {
+                viewModelScope.launch(Dispatchers.IO) {
                     useCase.getExpenses().collect {
                         val (startDate, endDate, daysInRange) = calculateDateRange(
                             filter = event.filter,

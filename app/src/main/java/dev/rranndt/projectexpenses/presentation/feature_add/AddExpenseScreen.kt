@@ -23,7 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.rranndt.projectexpenses.R
-import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
+import dev.rranndt.projectexpenses.core.utils.Filter
 import dev.rranndt.projectexpenses.domain.model.Category
 import dev.rranndt.projectexpenses.presentation.feature_add.components.*
 import dev.rranndt.projectexpenses.presentation.feature_add.state.AddExpenseState
@@ -44,7 +44,7 @@ fun AddExpenseScreen(
     categoryColor: Color,
     description: String,
     onAmountValueChange: (String) -> Unit,
-    onFilterValueChange: (OutputFlowFilter) -> Unit,
+    onFilterValueChange: (Filter) -> Unit,
     filterMenuOpened: MutableState<Boolean>,
     onSetDate: (LocalDate) -> Unit,
     datePickerOpened: MutableState<Boolean>,

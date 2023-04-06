@@ -1,13 +1,12 @@
 package dev.rranndt.projectexpenses.domain.model
 
-import dev.rranndt.projectexpenses.R
-import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
+import dev.rranndt.projectexpenses.core.utils.Filter
 import java.time.LocalDateTime
 
 data class Expense(
     var expenseId: Int = 0,
     var amount: Double = 0.0,
-    var outputFlow: Int = R.string.name_none,
+    var filter: String = "None",
     var dateValue: String = LocalDateTime.now().toString(),
     var description: String = "",
     var category: Category? = null,
@@ -17,13 +16,13 @@ data class Expense(
 
     constructor(
         amount: Double,
-        outputFlow: OutputFlowFilter,
+        filter: Filter,
         dateValue: LocalDateTime,
         description: String,
         category: Category,
     ) : this() {
         this.amount = amount
-        this.outputFlow = outputFlow.name
+        this.filter = filter.name
         this.dateValue = dateValue.toString()
         this.description = description
         this.category = category

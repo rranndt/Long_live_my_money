@@ -65,3 +65,5 @@ val md_theme_dark_outlineVariant = Color(0xFF49454E)
 val md_theme_dark_scrim = Color(0xFF000000)
 
 val Destructive = Color(0xFFFF453A)
+val BarColorEmpty = md_theme_dark_onSecondary.copy(alpha = 0.4f)
+val BarColor = Color(0XFF49a345)

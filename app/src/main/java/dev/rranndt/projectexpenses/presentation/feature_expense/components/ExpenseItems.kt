@@ -2,18 +2,17 @@ package dev.rranndt.projectexpenses.presentation.feature_expense.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.rranndt.projectexpenses.core.utils.localCurrencyFormat
 import dev.rranndt.projectexpenses.domain.model.Expense
 import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
-import java.text.NumberFormat
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 @Composable
 fun ExpenseItems(
@@ -23,13 +22,8 @@ fun ExpenseItems(
 ) {
     Column(
         modifier = Modifier
-            .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp))
-            .padding(
-                PaddingValues(
-                    horizontal = MaterialTheme.spacing.medium,
-                    vertical = MaterialTheme.spacing.small
-                )
-            )
+            .background(MaterialTheme.colorScheme.surfaceColorAtElevation(2.dp))
+            .padding(PaddingValues(MaterialTheme.spacing.medium))
     ) {
         Row(
             modifier = Modifier
@@ -46,9 +40,7 @@ fun ExpenseItems(
                     .weight(1f)
             )
             Text(
-                text = "IDR ${
-                    NumberFormat.getNumberInstance(Locale.getDefault()).format(amount)
-                }",
+                text = "IDR ${amount.localCurrencyFormat()}",
                 style = MaterialTheme.typography.bodyMedium.copy(
                     color = MaterialTheme.colorScheme.onBackground
                 )

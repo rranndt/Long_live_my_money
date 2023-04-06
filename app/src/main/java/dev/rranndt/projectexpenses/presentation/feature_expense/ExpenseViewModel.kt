@@ -3,15 +3,12 @@ package dev.rranndt.projectexpenses.presentation.feature_expense
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
+import dev.rranndt.projectexpenses.core.utils.Filter
 import dev.rranndt.projectexpenses.core.utils.calculateDateRange
 import dev.rranndt.projectexpenses.domain.usecase.ExpenseUseCase
 import dev.rranndt.projectexpenses.presentation.feature_expense.event.ExpenseEvent
 import dev.rranndt.projectexpenses.presentation.feature_expense.state.ExpenseState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,16 +17,37 @@ class ExpenseViewModel @Inject constructor(
     private val useCase: ExpenseUseCase,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(ExpenseState())
-    val uiState: StateFlow<ExpenseState> = _uiState
+    val uiState: StateFlow<ExpenseState> = _uiState.asStateFlow()
 
     init {
-        onEvent(ExpenseEvent.SetOutputFlow(OutputFlowFilter.DAILY))
+        onEvent(ExpenseEvent.SetExpenses(Filter.Daily))
         onEvent(ExpenseEvent.GetExpenses)
     }
 
     fun onEvent(event: ExpenseEvent) {
         when (event) {
-            is ExpenseEvent.SetOutputFlow -> {
+            ExpenseEvent.CloseFilterMenu -> {
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        isFilterOpened = false
+                    )
+                }
+            }
+            ExpenseEvent.OpenFilterMenu -> {
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        isFilterOpened = true
+                    )
+                }
+            }
+            ExpenseEvent.GetExpenses -> {
+                useCase.getExpenses().onEach {
+                    _uiState.value = uiState.value.copy(
+                        expenses = it
+                    )
+                }
+            }
+            is ExpenseEvent.SetExpenses -> {
                 viewModelScope.launch {
                     useCase.getExpenses().collect {
                         val (startDate, endDate) = calculateDateRange(event.outputFlow, 0)
@@ -45,20 +63,13 @@ class ExpenseViewModel @Inject constructor(
 
                         _uiState.update { currentState ->
                             currentState.copy(
-                                outputFlow = event.outputFlow,
+                                filter = event.outputFlow,
                                 sumTotal = sumTotal,
                                 expenses = filterExpenses
                             )
                         }
                     }
 
-                }
-            }
-            ExpenseEvent.GetExpenses -> {
-                useCase.getExpenses().onEach {
-                    _uiState.value = uiState.value.copy(
-                        expenses = it
-                    )
                 }
             }
         }

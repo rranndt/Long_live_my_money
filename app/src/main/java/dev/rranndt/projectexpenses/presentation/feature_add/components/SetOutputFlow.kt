@@ -11,11 +11,10 @@ import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import dev.rranndt.projectexpenses.core.utils.OutputFlowFilter
+import dev.rranndt.projectexpenses.core.utils.Filter
 import dev.rranndt.projectexpenses.presentation.ui.components.TableRow
 import dev.rranndt.projectexpenses.presentation.ui.theme.Shapes
 import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
@@ -24,15 +23,15 @@ import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
 fun SetOutputFlow(
     label: String,
     outputFlow: String,
-    onSetOutputFlowFilter: (OutputFlowFilter) -> Unit,
+    onSetOutputFlowFilter: (Filter) -> Unit,
     filterMenuOpened: MutableState<Boolean>,
 ) {
-    val outputFlowFilter = listOf(
-        OutputFlowFilter.NONE,
-        OutputFlowFilter.DAILY,
-        OutputFlowFilter.WEEKLY,
-        OutputFlowFilter.MONTHLY,
-        OutputFlowFilter.YEARLY,
+    val filters = listOf(
+        Filter.None,
+        Filter.Daily,
+        Filter.Weekly,
+        Filter.Monthly,
+        Filter.Yearly,
     )
 
     TableRow(
@@ -66,11 +65,11 @@ fun SetOutputFlow(
                                 .copy(alpha = 0.9f)
                         )
                 ) {
-                    outputFlowFilter.forEach {
+                    filters.forEach {
                         DropdownMenuItem(
                             text = {
                                 Text(
-                                    text = stringResource(id = it.name),
+                                    text = it.name,
                                     color = MaterialTheme.colorScheme.onTertiaryContainer,
                                     fontWeight = FontWeight.Normal
                                 )

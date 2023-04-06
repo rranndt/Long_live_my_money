@@ -35,7 +35,7 @@ fun FilterTrigger(
             style = MaterialTheme.typography.bodyMedium.copy(
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Medium
-            )
+            ),
         )
         Icon(
             painter = painterResource(id = R.drawable.ic_unfold),
