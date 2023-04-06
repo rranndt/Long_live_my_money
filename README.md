@@ -12,7 +12,7 @@ Separating the top level into 4 packages
 
 ```
 ├── core
-├── date
+├── data
 ├── domain
 └── presentation
 ```
@@ -40,6 +40,6 @@ Separating the top level into 4 packages
 - Adding multiple language
 - Backup and restore database
 - Export to csv
-- Add other currencies (***if possible***)
+- Add other currencies
 
 <p>Made with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
