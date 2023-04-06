@@ -13,6 +13,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import dev.rranndt.projectexpenses.R
 import dev.rranndt.projectexpenses.presentation.ui.theme.Destructive
 import dev.rranndt.projectexpenses.presentation.ui.theme.spacing
@@ -23,6 +24,7 @@ fun TableRow(
     minHeight: Dp = 45.dp,
     iconLabel: Painter? = null,
     label: String? = null,
+    labelDescription: String? = null,
     labelStyle: TextStyle = MaterialTheme.typography.bodySmall,
     labelWeight: FontWeight = FontWeight.Normal,
     hasArrow: Boolean = false,
@@ -53,19 +55,32 @@ fun TableRow(
                     .size(20.dp)
             )
         }
-        if (label != null) {
-            Text(
-                text = label,
-                style = labelStyle,
-                color = textColor,
-                fontWeight = labelWeight,
-                modifier = Modifier
-                    .padding(
-                        horizontal = MaterialTheme.spacing.medium,
-                        vertical = MaterialTheme.spacing.small
-                    )
-                    .weight(1f),
-            )
+        Column(
+            modifier = Modifier
+                .padding(
+                    horizontal = MaterialTheme.spacing.medium,
+                    vertical = MaterialTheme.spacing.small
+                )
+                .weight(1f),
+            verticalArrangement = Arrangement.Center
+        ) {
+            if (label != null) {
+                Text(
+                    text = label,
+                    style = labelStyle,
+                    color = textColor,
+                    fontWeight = labelWeight,
+                )
+            }
+            if (labelDescription != null) {
+                Text(
+                    text = labelDescription,
+                    style = labelStyle,
+                    color = textColor.copy(alpha = 0.5f),
+                    fontWeight = labelWeight,
+                    fontSize = 10.sp
+                )
+            }
         }
 
         if (content != null) {

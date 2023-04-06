@@ -12,7 +12,7 @@ data class ExpenseEntity(
     @ColumnInfo(name = "expense_id")
     var expenseId: Int = 0,
     var amount: Double = 0.0,
-    @ColumnInfo(name = "output_flow")
+    @ColumnInfo(name = "filter")
     var filter: String = "None",
     @ColumnInfo(name = "date_value")
     var dateValue: String = LocalDateTime.now().toString(),

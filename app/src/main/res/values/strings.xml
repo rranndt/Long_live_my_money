@@ -37,12 +37,22 @@
     <string name="title_setting_screen">Setting</string>
     <string name="title_categories_setting_screen">Categories</string>
     <string name="title_report_setting_screen">Report a bug</string>
+    <string name="title_currencies_setting_screen">Currencies</string>
     <string name="title_theme_setting_screen">Theme</string>
     <string name="title_language_setting_screen">Language</string>
     <string name="title_backup_restore_setting_screen">Backup or restore db</string>
     <string name="title_export_setting_screen">Export to csv</string>
     <string name="title_app_info_setting_screen">App info</string>
     <string name="title_erase_setting_screen">Erase all data</string>
+    <string name="description_categories_setting_screen">Manage all the categories</string>
+    <string name="description_report_setting_screen">Send report to developer</string>
+    <string name="description_currencies_setting_screen">Add other currencies</string>
+    <string name="description_theme_setting_screen">Choose your favorite theme</string>
+    <string name="description_language_setting_screen">Choose your language</string>
+    <string name="description_backup_setting_screen">Backup or restore your database</string>
+    <string name="description_export_setting_screen">Export data to csv</string>
+    <string name="description_app_info_setting_screen">App version and other information</string>
+    <string name="description_erase_info_setting_screen">Delete all the data in this app</string>
 
     <!--Categories Screen-->
     <string name="content_description_clear_icon_category_screen">Delete icon</string>
