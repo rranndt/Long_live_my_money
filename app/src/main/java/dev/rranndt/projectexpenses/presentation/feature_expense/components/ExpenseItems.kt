@@ -38,6 +38,7 @@ fun ExpenseItems(
                 maxLines = 5,
                 modifier = Modifier
                     .weight(1f)
+                    .padding(end = MaterialTheme.spacing.medium)
             )
             Text(
                 text = "IDR ${amount.localCurrencyFormat()}",

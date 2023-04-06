@@ -16,12 +16,12 @@ interface ExpenseDao {
     @Query("DELETE FROM category WHERE category_id = :id")
     suspend fun deleteCategoryBy(id: Int)
 
-    @Query("SELECT * FROM category ORDER BY category_id ASC")
+    @Query("SELECT * FROM category ORDER BY category_id DESC")
     fun getCategories(): Flow<List<CategoryEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertExpense(expense: ExpenseEntity)
 
-    @Query("SELECT * FROM expense ORDER BY date_value ASC")
+    @Query("SELECT * FROM expense ORDER BY expense_id DESC")
     fun getExpenses(): Flow<List<ExpenseEntity>>
 }

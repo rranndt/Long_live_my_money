@@ -112,7 +112,7 @@ fun StatisticPage(
         Box(
             modifier = Modifier
                 .height(180.dp)
-                .padding(vertical = 16.dp),
+                .padding(vertical = MaterialTheme.spacing.small),
             contentAlignment = Alignment.Center
         ) {
             when (filter) {
@@ -126,18 +126,19 @@ fun StatisticPage(
         // TODO: chart gruping berdasarkan jumlah kategori yg digunakan
         Box(modifier = Modifier) {
             val slices = listOf(
-                Slice(value = 2f, color = Color(0XFFe31a1a)),
-                Slice(value = 3f, color = Color(0XFF377eb8)),
-                Slice(value = 6f, color = Color(0xFFA36045)),
-                Slice(value = 2f, color = Color(0xFFA38F45)),
-                Slice(value = 4f, color = Color(0xFF45A388)),
-                Slice(value = 5f, color = Color(0xFF4559A3)),
-                Slice(value = 1f, color = Color(0xFFA3459A))
+                Slice(value = 2f, color = Color(0XFF818EFF).copy(alpha = 0.8f)),
+                Slice(value = 3f, color = Color(0XFFDFA4FE).copy(alpha = 0.8f)),
+                Slice(value = 6f, color = Color(0xFF78FFEE).copy(alpha = 0.8f)),
+                Slice(value = 2f, color = Color(0xFFF7FE83).copy(alpha = 0.8f)),
+                Slice(value = 4f, color = Color(0xFFFE5C84).copy(alpha = 0.8f)),
+                Slice(value = 5f, color = Color(0xFFFFBD7C).copy(alpha = 0.8f)),
+                Slice(value = 1f, color = Color(0xFF898988).copy(alpha = 0.8f))
             )
             StackBarChart(
                 slices = slices,
                 modifier = Modifier
-                    .height(16.dp)
+                    .height(20.dp)
+                    .padding(bottom = MaterialTheme.spacing.small)
                     .fillMaxWidth(),
             )
         }

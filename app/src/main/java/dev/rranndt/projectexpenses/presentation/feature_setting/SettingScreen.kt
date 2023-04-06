@@ -74,7 +74,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_category),
                     label = stringResource(id = R.string.title_categories_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_categories_setting_screen),
                     hasArrow = true,
                     modifier = Modifier
                         .clickable {
@@ -85,7 +84,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_bug_report),
                     label = stringResource(id = R.string.title_report_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_report_setting_screen),
                     hasArrow = true,
                     modifier = Modifier
                         .clickable {
@@ -97,7 +95,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_currency),
                     label = stringResource(id = R.string.title_currencies_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_currencies_setting_screen),
                     modifier = Modifier
                         .clickable {
                             // TODO: Just form page to send the message
@@ -108,7 +105,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_theme),
                     label = stringResource(id = R.string.title_theme_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_theme_setting_screen),
                     modifier = Modifier
                         .clickable {
                             // TODO: Change theme to dark/light/by system default
@@ -119,7 +115,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_language),
                     label = stringResource(id = R.string.title_language_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_language_setting_screen),
                     modifier = Modifier
                         .clickable {
                             // TODO: Choose language, at least english and indonesia
@@ -130,7 +125,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_backup_restore),
                     label = stringResource(id = R.string.title_backup_restore_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_backup_setting_screen),
                     modifier = Modifier
                         .clickable {
                             // TODO: Backup and restore the database
@@ -141,7 +135,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_export),
                     label = stringResource(id = R.string.title_export_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_export_setting_screen),
                     modifier = Modifier
                         .clickable {
                             // TODO: Export file to csv
@@ -152,7 +145,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_info),
                     label = stringResource(id = R.string.title_app_info_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_app_info_setting_screen),
                     modifier = Modifier
                         .clickable {
                             // TODO: Show the standard app info
@@ -163,7 +155,6 @@ fun SettingScreen(
                 TableRow(
                     iconLabel = painterResource(id = R.drawable.ic_delete),
                     label = stringResource(id = R.string.title_erase_setting_screen),
-                    labelDescription = stringResource(id = R.string.description_erase_info_setting_screen),
                     isDestructive = true,
                     modifier = Modifier
                         .clickable {
