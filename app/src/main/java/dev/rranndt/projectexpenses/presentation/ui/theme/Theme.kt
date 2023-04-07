@@ -1,5 +1,6 @@
 package dev.rranndt.projectexpenses.presentation.ui.theme
 
+import android.annotation.TargetApi
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
@@ -72,14 +73,16 @@ private val DarkColorPalette = darkColorScheme(
 )
 
 @Composable
+@TargetApi(Build.VERSION_CODES.S)
 fun ProjectExpensesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
     val useDynamicColors = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+    val context = LocalContext.current
     val colors = when {
-        useDynamicColors && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
-        useDynamicColors && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
+        useDynamicColors && darkTheme -> dynamicDarkColorScheme(context)
+        useDynamicColors && !darkTheme -> dynamicLightColorScheme(context)
         darkTheme -> DarkColorPalette
         else -> LightColorPalette
     }
