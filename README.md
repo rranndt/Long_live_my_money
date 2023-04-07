@@ -6,7 +6,7 @@
 
 [![rranndt](https://circleci.com/gh/rranndt/Long_live_my_money.svg?style=shield)](https://circleci.com/gh/rranndt/Long_live_my_money?branch=main)
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.8.10-green.svg)](https://kotlinlang.org/docs/releases.html) [![Gradle](https://img.shields.io/badge/Gradle-7.5-green.svg)](https://docs.gradle.org/7.5/release-notes.html) [![Compose](https://img.shields.io/badge/Compose-1.4.1-green.svg)](https://developer.android.com/jetpack/compose)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.8.10-green.svg)](https://kotlinlang.org/docs/releases.html) [![Java](https://img.shields.io/badge/Java-11-green.svg)](https://jdk.java.net/11/) [![AGP](https://img.shields.io/badge/AGP-7.4.2-green.svg)](https://docs.gradle.org/7.4.2/release-notes.html) [![Compose](https://img.shields.io/badge/Compose-1.4.1-green.svg)](https://developer.android.com/jetpack/compose)
 
 ![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
 
