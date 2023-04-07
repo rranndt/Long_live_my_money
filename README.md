@@ -11,7 +11,7 @@
 ![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
 
 ## Clean Architecture with MVVM design pattern
-***I am still learning and understanding clean architecture so it might be not perfectly 101% correct*** :pray:
+***I am always learning and try to understanding clean architecture, so it might be not perfectly 101% correct yet.*** :pray:
 
 ## Project structure
 
