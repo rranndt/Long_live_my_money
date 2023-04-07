@@ -1,4 +1,4 @@
-<h1 align="center">Compose Playground...***In progress***</h1>
+<h1 align="center">Compose Playground...<i>**In progress**</i></h1>
 
 ## Introduction 🙋‍♂️
 
