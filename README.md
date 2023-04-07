@@ -1,5 +1,7 @@
-# Compose Playground...***Work in progress***...
-***A minimalistic Android application made to describe the latest android development trend. Built with Clean Architecture and Jatpack Component (Compose, ViewModel, Room, Hilt, and many more...)***
+# Compose Playground...***In progress***...
+***A minimalistic Android application made to demonstrate the use of modern development tools. Built with Clean Architecture and Jetpack Component (Compose, ViewModel, Room, Hilt, and many more...)***
+
+![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
 
 ## Clean Architecture with MVVM design pattern
 ***I am still learning and understanding clean architecture so it might be not perfectly 101% correct*** :pray:
@@ -10,7 +12,7 @@ Separating the top level into 4 packages
 
 ```
 ├── core
-├── date
+├── data
 ├── domain
 └── presentation
 ```
@@ -22,6 +24,7 @@ Separating the top level into 4 packages
 
 ## Build with :building_construction:	
 - <a href="https://developer.android.com/jetpack/compose">***Jetpack Compose***</a> : Jetpack Compose is Android’s modern toolkit for building native UI.
+- <a href="https://sentry.io/">***Sentry***</a> : Open-source error tracking that helps developers to monitor, fix crashes in real time.
 - <a href="https://m3.material.io/">***Material 3 Design***</a> : The Material 3 Design Kit is built to work with the Material Theme Builder Figma plugin.
 - <a href="https://developer.android.com/topic/libraries/architecture/viewmodel">***View Model***</a> : The ViewModel class is a business logic or screen level state holder. 
 - <a href="https://developer.android.com/training/data-storage/room">***Room***</a> : The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
@@ -38,6 +41,8 @@ Separating the top level into 4 packages
 - Adding multiple language
 - Backup and restore database
 - Export to csv
-- Add other currencies (***if possible***)
+- Add other currencies
+
+**Dilanjutken mun ker nyantai...**
 
 <p>Made with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
