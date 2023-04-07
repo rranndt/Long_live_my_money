@@ -34,12 +34,13 @@ import dev.rranndt.projectexpenses.presentation.feature_statistic.StatisticViewM
 import dev.rranndt.projectexpenses.presentation.ui.navigation.Screen
 import dev.rranndt.projectexpenses.presentation.ui.navigation.bottom_bar.BottomBar
 import dev.rranndt.projectexpenses.presentation.ui.navigation.top_bar_pager.TopBarPager
+import io.sentry.compose.withSentryObservableEffect
 import kotlinx.coroutines.flow.collect
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalPagerApi::class)
 @Composable
 fun MainScreen(
-    navController: NavHostController = rememberNavController(),
+    navController: NavHostController = rememberNavController().withSentryObservableEffect(),
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
