@@ -24,6 +24,7 @@ Separating the top level into 4 packages
 
 ## Build with :building_construction:	
 - <a href="https://developer.android.com/jetpack/compose">***Jetpack Compose***</a> : Jetpack Compose is Android’s modern toolkit for building native UI.
+- <a href="https://sentry.io/">***Sentry***</a> : Open-source error tracking that helps developers to monitor, fix crashes in real time.
 - <a href="https://m3.material.io/">***Material 3 Design***</a> : The Material 3 Design Kit is built to work with the Material Theme Builder Figma plugin.
 - <a href="https://developer.android.com/topic/libraries/architecture/viewmodel">***View Model***</a> : The ViewModel class is a business logic or screen level state holder. 
 - <a href="https://developer.android.com/training/data-storage/room">***Room***</a> : The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
