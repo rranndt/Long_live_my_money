@@ -77,9 +77,10 @@ fun ProjectExpensesTheme(
     content: @Composable () -> Unit,
 ) {
     val useDynamicColors = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+    val context = LocalContext.current
     val colors = when {
-        useDynamicColors && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
-        useDynamicColors && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
+        useDynamicColors && darkTheme -> dynamicDarkColorScheme(context)
+        useDynamicColors && !darkTheme -> dynamicLightColorScheme(context)
         darkTheme -> DarkColorPalette
         else -> LightColorPalette
     }
