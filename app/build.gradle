@@ -113,4 +113,8 @@ dependencies {
 
     // Chart
     implementation "com.github.tehras:charts:0.2.4-alpha"
+
+    // Sentry
+    implementation "io.sentry:sentry-android:$sentry_version"
+    implementation "io.sentry:sentry-compose-android:$sentry_version"
 }
