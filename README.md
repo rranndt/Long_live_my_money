@@ -42,4 +42,6 @@ Separating the top level into 4 packages
 - Export to csv
 - Add other currencies
 
+**Dilanjutken mun ker nyantai...**
+
 <p>Made with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
