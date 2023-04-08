@@ -10,8 +10,8 @@
 
 ![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
 
-## Clean Architecture with MVVM design pattern
-***I am always learning and try to understanding clean architecture, so it might be not perfectly 101% correct yet.*** :pray:
+## Clean Architecture
+![Untitled Diagram](https://user-images.githubusercontent.com/65359346/230699718-2590b34f-7815-4d16-99c2-ead196702f7f.jpg)
 
 ## Project structure
 
@@ -37,13 +37,8 @@ Separating the top level into 4 packages
 - <a href="http://airbnb.io/lottie/#/android-compose">***Lottie***</a> : Lottie is a library for Android, iOS, Web, and Windows that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile and on the web!
 - <a href="https://github.com/google/accompanist">***Accompanist***</a> : Accompanist is a group of libraries that aim to supplement Jetpack Compose with features that are commonly required by developers but not yet available.
 
-## Incomplete task :no_entry:
-- Horizontal paging between date in statistic
-- Change theme between dark or light or by system default
-- Adding multiple language
-- Backup and restore database
-- Export to csv
-- Add other currencies
+## Want to Contribute ?
+Allright let's go don't be shy.:love_you_gesture: Feel free to open issues/pull requests to help me improve this project.
 
 **Dilanjutken mun ker nyantai...**
 
