@@ -123,7 +123,7 @@ fun StatisticPage(
             }
         }
 
-        // TODO: chart gruping berdasarkan jumlah kategori yg digunakan
+        // TODO: Masih ekperimen chart gruping berdasarkan jumlah kategori yg digunakan
         Box(modifier = Modifier) {
             val slices = listOf(
                 Slice(value = 2f, color = Color(0XFF818EFF).copy(alpha = 0.8f)),
