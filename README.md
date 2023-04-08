@@ -11,7 +11,7 @@
 ![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
 
 ## Clean Architecture
-![Untitled Diagram](https://user-images.githubusercontent.com/65359346/230699718-2590b34f-7815-4d16-99c2-ead196702f7f.jpg)
+![Clean Architecture Diagram](https://user-images.githubusercontent.com/65359346/230701175-ce33ce7e-6cb3-4f16-8dfe-033ec96eba05.jpg)
 
 ## Project structure
 
