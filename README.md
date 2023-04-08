@@ -1,10 +1,17 @@
-# Compose Playground...***In progress***...
-***A minimalistic Android application made to demonstrate the use of modern development tools. Built with Clean Architecture and Jetpack Component (Compose, ViewModel, Room, Hilt, and many more...)***
+<h1 align="center">Compose Playground...<i>**In progress**</i></h1>
+
+## Introduction 🙋‍♂️
+
+***A minimalistic Android application made to demonstrate the use of modern development tools. Built with Clean Architecture and Jetpack Component (Compose, ViewModel, Room, Hilt, and more...)***
+
+[![rranndt](https://circleci.com/gh/rranndt/Long_live_my_money.svg?style=shield)](https://circleci.com/gh/rranndt/Long_live_my_money?branch=main)
+
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.8.10-green.svg)](https://kotlinlang.org/docs/releases.html) [![Java](https://img.shields.io/badge/Java-11-green.svg)](https://jdk.java.net/11/) [![AGP](https://img.shields.io/badge/AGP-7.4.2-green.svg)](https://docs.gradle.org/7.4.2/release-notes.html) [![Compose](https://img.shields.io/badge/Compose-1.4.1-green.svg)](https://developer.android.com/jetpack/compose)
 
 ![Project-Expenses](https://user-images.githubusercontent.com/65359346/230407575-10f4a83e-0663-4b71-9fdd-0036bbfca752.png)
 
-## Clean Architecture with MVVM design pattern
-***I am still learning and understanding clean architecture so it might be not perfectly 101% correct*** :pray:
+## Clean Architecture
+![Untitled Diagram](https://user-images.githubusercontent.com/65359346/230699718-2590b34f-7815-4d16-99c2-ead196702f7f.jpg)
 
 ## Project structure
 
@@ -16,11 +23,6 @@ Separating the top level into 4 packages
 ├── domain
 └── presentation
 ```
-
-## General Dependencies
-- <a href="https://developer.android.com/jetpack/compose">***Compose-version: 1.4.1***</a>
-- ***Gradle Version: 7.5***
-- ***Kotlin Version: 1.8.10***
 
 ## Build with :building_construction:	
 - <a href="https://developer.android.com/jetpack/compose">***Jetpack Compose***</a> : Jetpack Compose is Android’s modern toolkit for building native UI.
@@ -35,14 +37,13 @@ Separating the top level into 4 packages
 - <a href="http://airbnb.io/lottie/#/android-compose">***Lottie***</a> : Lottie is a library for Android, iOS, Web, and Windows that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile and on the web!
 - <a href="https://github.com/google/accompanist">***Accompanist***</a> : Accompanist is a group of libraries that aim to supplement Jetpack Compose with features that are commonly required by developers but not yet available.
 
-## Incomplete task :no_entry:
-- Horizontal paging between date in statistic
-- Change theme between dark or light or by system default
-- Adding multiple language
-- Backup and restore database
-- Export to csv
-- Add other currencies
+## Want to Contribute ?
+Allright let's go don't be shy.:love_you_gesture: Feel free to open issues/pull requests to help me improve this project.
 
-**Dilanjutken mun ker nyantai...**
+## Contributors
+- <a href="https://github.com/rranndt">Rizki R. Anandita</a>
 
-<p>Made with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
+## License
+This project is provided for educational purposes only, it is not affiliated with anyone.
+<br>
+<p>Started with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
