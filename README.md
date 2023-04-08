@@ -2,7 +2,7 @@
 
 ## Introduction 🙋‍♂️
 
-***A minimalistic Android application made to demonstrate the use of modern development tools and provided for educational purposes only. Built with Clean Architecture and Jetpack Component (Compose, ViewModel, Room, Hilt, and more...)***
+***A minimalistic Android application made to demonstrate the use of modern development tools. Built with Clean Architecture and Jetpack Component (Compose, ViewModel, Room, Hilt, and more...)***
 
 [![rranndt](https://circleci.com/gh/rranndt/Long_live_my_money.svg?style=shield)](https://circleci.com/gh/rranndt/Long_live_my_money?branch=main)
 
@@ -40,6 +40,10 @@ Separating the top level into 4 packages
 ## Want to Contribute ?
 Allright let's go don't be shy.:love_you_gesture: Feel free to open issues/pull requests to help me improve this project.
 
-**Dilanjutken mun ker nyantai...**
+## Contributors
+- <a href="https://github.com/rranndt">Rizki R. Anandita</a>
 
-<p>Made with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
+## License
+This project is provided for educational purposes only, it is not affiliated with anyone.
+<br>
+<p>Started with ❤️ by <a href="https://www.instagram.com/rranndt/">rranndt</a></p>
